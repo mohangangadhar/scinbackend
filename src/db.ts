@@ -1,13 +1,8 @@
 require("dotenv").config();
 import { Sequelize, DataTypes } from "sequelize";
 
-const POSTGRES_URL = process.env.DATABASE_URL as string;
-
-console.log(POSTGRES_URL);
-
-const sequelize = new Sequelize(POSTGRES_URL, {
-  dialect: "postgres",
-});
+const POSTGRES_URL = process.env.DATABASE_URL as unknown as string;
+const sequelize = new Sequelize(POSTGRES_URL);
 
 async function connectDB() {
   try {
