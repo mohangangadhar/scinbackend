@@ -1,39 +1,40 @@
 import { sequelize, DataTypes } from "../db";
 
-const BlogModel = sequelize.define("blogs", {
+const Carrier = sequelize.define(
+  "shipping_carriers",
+  {
     id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-        primaryKey: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true,
     },
-    title: {
-        type: DataTypes.STRING(100),
-        allowNull: false,
-        unique: true,
+    carrier_name: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+      unique: true,
     },
-    description: {
-        type: DataTypes.TEXT,
-        allowNull: false,
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false,
     },
-    category: {
-        type: DataTypes.STRING(50),
-        allowNull: true,
-    },
-    published: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false,
-        allowNull: false,
+    created_by: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
     },
     createdAt: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW,
-        allowNull: false,
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+      allowNull: false,
     },
     updatedAt: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW,
-        allowNull: false,
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+      allowNull: false,
     },
-});
+  },
+  {
+    schema: "test_schema1", // Specify the schema name here
+  }
+);
 
-export default BlogModel;
+export { Carrier };
