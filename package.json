@@ -1,5 +1,5 @@
 {
-  "name": "CRUD-with-nodejs-postgreSQL",
+  "name": "scinbackend",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
+    "dotenv": "^16.4.5",
     "express": "^4.18.2",
     "pg": "^8.11.2",
     "pg-hstore": "^2.3.4",
@@ -19,6 +19,7 @@
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/morgan": "^1.9.4",
+    "@types/pg": "^8.11.4",
     "morgan": "^1.10.0",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.1.6"

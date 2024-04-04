@@ -1,18 +1,21 @@
 import express from "express";
-import { validate } from "../middleware/validate"
-import { createBlogController, deleteBlogController, findAllBlogsController, findBlogController, updateBlogController } from "../controller/blog.controller";
-import { createBlogSchema, updateBlogSchema } from "../controller/blog.schema";
+import {
+  getAllCarriersController,
+  getCarrierByIdController,
+} from "../controller/carriercontroller";
+import {
+  getAllReviewsController,
+  getReviewByIdController,
+  deleteReviewController,
+} from "../controller/reviewcontroller";
 
 const router = express.Router();
 
-router
-    .route("/")
-    .get(findAllBlogsController)
-    .post(validate(createBlogSchema), createBlogController);
-router
-    .route("/:blogId")
-    .get(findBlogController)
-    .patch(validate(updateBlogSchema), updateBlogController)
-    .delete(deleteBlogController);
+// Define a route handler for the GET request to "/getAll"
+router.get("/carrier/getAll", getAllCarriersController);
+router.get("/carrier/:id", getCarrierByIdController);
+router.get("/review", getAllReviewsController);
+router.get("/review/:id", getReviewByIdController);
+router.get("/review/delete/:id", deleteReviewController);
 
-    export default router;
+export default router;
